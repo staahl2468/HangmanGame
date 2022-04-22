@@ -8,7 +8,9 @@ namespace HangmanGame
         // The running program.
         static void Main(string[] args)
         {
-            char[] Wordarray = RandomWord();
+            string filepath = @"C:\Users\staah\source\repos\EnglishWords.txt";
+            string[] Englishwords = File.ReadAllLines(filepath);
+            char[] Wordarray = RandomWord(Englishwords);
             char[] Guessed = MakeGuessed(Wordarray);
             int Mistakecounter = 0;
             int Win = 0;
@@ -30,10 +32,13 @@ namespace HangmanGame
             }
         }
 
-        // Making a word into and array.
-        public static char[] RandomWord()
+        // Picks a random string from a text file, and makes it into an array.
+        public static char[] RandomWord(string[] words)
         {
-            string word = "test";
+            Random rnd = new Random();
+            int num = rnd.Next(1, 5000);
+
+            string word = $"{words[num]}";
             char[] wordarray = new char [word.Length];
             for (int i = 0; i < word.Length; i++)
             {
