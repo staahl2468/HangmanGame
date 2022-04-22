@@ -8,10 +8,11 @@ namespace HangmanGame
         // The running program.
         static void Main(string[] args)
         {
-            string filepath = @"C:\Users\staah\source\repos\HangmanGame\EnglishWords";
+            string filepath = @"C:\Users\staah\source\repos\HangmanGame\EnglishWords.txt";
             string[] Englishwords = File.ReadAllLines(filepath);
             char[] Wordarray = RandomWord(Englishwords);
             char[] Guessed = MakeGuessed(Wordarray);
+            Console.WriteLine(Guessed);
             int Mistakecounter = 0;
             int Win = 0;
             do
