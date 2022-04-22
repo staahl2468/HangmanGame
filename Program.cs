@@ -5,6 +5,7 @@ namespace HangmanGame
     internal class Program
     {
         
+        // The running program.
         static void Main(string[] args)
         {
             char[] Wordarray = RandomWord();
@@ -29,6 +30,7 @@ namespace HangmanGame
             }
         }
 
+        // Making a word into and array.
         public static char[] RandomWord()
         {
             string word = "test";
@@ -40,6 +42,7 @@ namespace HangmanGame
             return wordarray;
         }
 
+        // Changing all char's in the word to "_". This is what will be displayed to the user.
         public static char[] MakeGuessed(char[] word)
         {
             char[] guessed = new char [word.Length];
@@ -50,12 +53,14 @@ namespace HangmanGame
             return guessed;
         }
 
+        // Asks the user for a guess and returns their guess in a char.
         public static char TakeGuess()
         {
             Console.WriteLine("Take a guess");
             return Convert.ToChar(Console.ReadLine());
         }
 
+        // Updates the array "Guessed".
         public static char[] Compare(char guess, char[] word, char[] guessed)
         {
             for (int i = 0; i < word.Length; i++)
@@ -68,6 +73,7 @@ namespace HangmanGame
             return guessed;
         }
 
+        // If the word doesn't contain their guess, the mistake counter will go up.
         public static int MistakeCounter(char guess, char[] word, int counter)
         {
             if (!word.Contains(guess))
@@ -80,6 +86,7 @@ namespace HangmanGame
             }
         }
 
+        // If all the char's in "Guessed" and "Wordarray" are the same, it will change "Win" to 1.
         public static int CheckForWin(char[] guessed, char[] word, int win)
         {
             for (int i = 0; i < word.Length; i++)
