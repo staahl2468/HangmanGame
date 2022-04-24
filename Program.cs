@@ -8,6 +8,7 @@ namespace HangmanGame
         // The running program.
         static void Main(string[] args)
         {
+            // Change to your own file location
             string filepath = @"C:\Users\staah\source\repos\HangmanGame\EnglishWords.txt";
             string[] Englishwords = File.ReadAllLines(filepath);
             char[] Wordarray = RandomWord(Englishwords);
